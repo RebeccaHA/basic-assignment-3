@@ -23,9 +23,12 @@ const app = Vue.createApp({
       this.result = this.result + num;
     }
   },
-  watchers: {
-    result(value) {
-      setTimeout((this.result = 0), 5000);
+  watch: {
+    text() {
+      const that = this;
+      setTimeout(function() {
+        that.result = 0;
+      }, 5000);
     }
   }
 });
